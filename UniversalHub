@@ -40,6 +40,30 @@ Tab2:CreateButton("AdonisChecker", function(value)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAScripts/Favorable/main/AdonisChecker.Lua",true))()
 end) 
 
+Tab2:CreateButton("Firepp", function(value)
+local c=game.Players.LocalPlayer.Character 
+local function a()
+local m=math.huge
+local n
+for _,d in ipairs(workspace:GetDescendants())do
+if(d:IsA("Part")or d:IsA("MeshPart"))and d:FindFirstChild("ProximityPrompt")then
+local e=(d.Position-c.PrimaryPart.Position).Magnitude
+if e<m then
+m=e
+n=d
+end
+end
+end
+if n then
+local r=n.ProximityPrompt
+if r then
+fireproximityprompt(r)
+end
+end
+end
+a()
+end) 
+
 Tab2:CreateButton("ProximityPrompt", function(value)
 for _, v in next, workspace:GetDescendants() do
 if v:IsA("ProximityPrompt") then
